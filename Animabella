@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anima Bella | Centro Estetico & Nail Salone</title>
+    <style>
+        /* 全局高端极简样式 - 适配移动端优先 */
+        :root {
+            --primary-color: #c5934a; /* 金铜色主调 */
+            --dark-color: #2c2520;
+            --light-bg: #faf8f5;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航 - 页眉包含 Logo */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 45px; 
+            width: auto;
+            display: block;
+        }
+
+        .btn-book-top {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn-book-top:hover {
+            background-color: #aa7d3b;
+        }
+
+        /* Hero 主视觉区域 */
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            color: #777;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* 服务项目区域 (无价格排版) */
+        .services-section {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        .service-category {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .service-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        /* 在平板和电脑上显示为两列 */
+        @media (min-width: 600px) {
+            .service-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px 30px;
+            }
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .service-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* 核心信息与地图区域 */
+        .info-section {
+            padding: 10px 20px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .info-block {
+            margin-bottom: 30px;
+        }
+
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-block h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-block p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e1306c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 5px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 底部固定大按钮 */
+        .cta-container {
+            padding: 20px 20px 50px;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: #a09892;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #a09892;
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="image.png" alt="Anima Bella Logo" class="header-logo">
+        <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-book-top">Prenota</a>
+    </header>
+
+    <section class="hero">
+        <img src="image.png" alt="Anima Bella" class="hero-logo">
+        <h1>Anima Bella</h1>
+        <p>Centro Estetico & Nail Salone</p>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">I NOSTRI SERVIZI</h2>
+
+        <div class="service-category">
+            <h3 class="category-title">Manicure</h3>
+            <ul class="service-list">
+                <li>Manicure senza smalto</li>
+                <li>Manicure + smalto normale</li>
+                <li>Cambio smalto colorato</li>
+                <li>Manicure con semipermanente</li>
+                <li>Manicure con semipermanente french</li>
+                <li>Cambio smalto semipermanente</li>
+                <li>Rimozione semipermanente</li>
+                <li>Rimozione semipermanente + manicure</li>
+                <li>Taglio unghie</li>
+            </ul>
+        </div>
+
+        <div class="service-category">
+            <h3 class="category-title">Pedicure</h3>
+            <ul class="service-list">
+                <li>Pedicure senza smalto</li>
+                <li>Pedicure + smalto normale</li>
+                <li>Cambio smalto colorato</li>
+                <li>Pedicure con semipermanente</li>
+                <li>Pedicure con semipermanente french</li>
+                <li>Cambio smalto semipermanente</li>
+                <li>Rimozione semipermanente</li>
+                <li>Rimozione semipermanente + pedicure</li>
+                <li>Taglio unghie</li>
+                <li>Trattamento curativo (calli, duroni, unghie incarnite)</li>
+            </ul>
+        </div>
+
+        <div class="service-category">
+            <h3 class="category-title">Ricostruzione in Gel</h3>
+            <ul class="service-list">
+                <li>Ricostruzione con cartina</li>
+                <li>Copertura unghie</li>
+                <li>Ritocco gel</li>
+                <li>Rimozione gel</li>
+                <li>Rimozione gel + manicure</li>
+            </ul>
+        </div>
+
+        <div class="service-category">
+            <h3 class="category-title">Depilazione / Ceretta Donna</h3>
+            <ul class="service-list">
+                <li>Sopracciglia</li>
+                <li>Baffetti</li>
+                <li>Ascelle</li>
+                <li>Braccia</li>
+                <li>Glutei</li>
+                <li>Coscia</li>
+                <li>Mezza gamba</li>
+                <li>Gamba intera</li>
+                <li>Inguine</li>
+                <li>Inguine totale</li>
+            </ul>
+        </div>
+
+        <div class="service-category">
+            <h3 class="category-title">Ceretta Uomo</h3>
+            <ul class="service-list">
+                <li>Ascelle</li>
+                <li>Petto</li>
+                <li>Schiena</li>
+                <li>Braccia</li>
+                <li>Mezza gamba</li>
+            </ul>
+        </div>
+
+        <div class="service-category">
+            <h3 class="category-title">Ceretta Menù (Pacchetti)</h3>
+            <ul class="service-list">
+                <li>Gamba intera + inguine + ascelle + braccia + baffetti</li>
+                <li>Mezza gamba + inguine + ascelle + braccia + baffetti</li>
+                <li>Gamba intera + inguine + ascelle + braccia</li>
+                <li>Mezza gamba + inguine + ascelle + braccia</li>
+                <li>Gamba intera + ascelle + braccia</li>
+                <li>Mezza gamba + ascelle + braccia</li>
+                <li>Gamba intera + inguine + baffetti</li>
+                <li>Mezza gamba + inguine + baffetti</li>
+                <li>Gamba intera + inguine + ascelle</li>
+                <li>Mezza gamba + inguine + ascelle</li>
+                <li>Gamba intera + inguine + braccia</li>
+                <li>Mezza gamba + inguine + braccia</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h2 class="section-title">ORARI & CONTATTI</h2>
+        
+        <div class="info-card">
+            <div class="info-block">
+                <h3>Orari di Apertura</h3>
+                <p>Lunedì - Sabato: 09:00 - 20:00</p>
+                <p>Domenica: 10:00 - 19:00</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Seguici su Instagram</h3>
+                <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="social-link">
+                    📸 @anim_abellacentroestetico2026
+                </a>
+            </div>
+
+            <div class="info-block">
+                <h3>Telefono / WhatsApp</h3>
+                <p>+39 324 265 2619</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Indirizzo</h3>
+                <p>Via Papa Giovanni XXIII, 29,<br>20098 San Giuliano Milanese MI, Italia</p>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Via%20Papa%20Giovanni%20XXIII,%2029,%2020098%20San%20Giuliano%20Milanese%20MI&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-container">
+        <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento%20da%20Anima%20Bella." class="btn-whatsapp">
+            Prenota su WhatsApp
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Anima Bella Centro Estetico. Tutti i diritti riservati.</p>
+        <p>San Giuliano Milanese (MI) | <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank">Instagram</a></p>
+    </footer>
+
+</body>
+</html>
