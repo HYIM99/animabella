@@ -221,86 +221,39 @@
             font-weight: bold;
         }
 
-        /* 重构：高级 Instagram 画廊区域 */
-        .gallery {
-            padding: 80px 5%;
+        /* 极简 Instagram 引导区域样式 */
+        .instagram-section {
+            padding: 90px 5%;
             text-align: center;
             background: #fff;
+            border-top: 1px solid #f0f0f0;
         }
 
-        .instagram-profile-header {
+        .instagram-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .insta-follow-btn {
             background: var(--insta-gradient);
             color: white;
-            padding: 10px 24px;
+            padding: 14px 35px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.2);
-            transition: transform 0.3s;
+            font-size: 1rem;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.25);
+            transition: all 0.3s ease;
         }
 
         .insta-follow-btn:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .instagram-post-link {
-            position: relative;
-            display: block;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .instagram-post-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        /* 悬停时的 Instagram 遮罩效果 */
-        .instagram-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            font-size: 1.1rem;
-            font-weight: 600;
-            gap: 20px;
-        }
-
-        .instagram-post-link:hover .instagram-overlay {
-            opacity: 1;
-        }
-
-        .instagram-post-link:hover img {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.35);
         }
 
         .contact {
@@ -407,10 +360,6 @@
                 text-align: center;
                 padding: 50px 5%;
             }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 10px;
-            }
             .contact {
                 flex-direction: column;
             }
@@ -429,7 +378,7 @@
         <ul class="nav-links">
             <li><a href="#chi-siamo">Chi Siamo</a></li>
             <li><a href="#servizi">Servizi</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#instagram">Instagram</a></li>
             <li><a href="#contatti">Dove Siamo</a></li>
         </ul>
         <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-primary">Prenota Ora</a>
@@ -437,7 +386,7 @@
 
     <section class="hero">
         <div class="hero-text">
-            <h1>Anima Bella: Il Tuo Momento di Bellezza e Relax</h1>
+            <h1>Anima Bella: Il Tuo Moment di Bellezza e Relax</h1>
             <p>Nail Art e Trattamenti Estetici Professionali a San Giuliano Milanese.</p>
             <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-primary">Inizia la Tua Esperienza</a>
         </div>
@@ -511,47 +460,14 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
-        <div class="instagram-profile-header">
+    <section id="instagram" class="instagram-section">
+        <div class="instagram-wrapper">
             <h2 class="section-title">SU DI NOI</h2>
-            <p style="color:#777; font-weight:500; margin-top:5px;">Seguici su Instagram</p>
+            <p style="color: var(--text-light); font-size: 1.05rem; margin-top: 10px; font-weight: 400;">
+                Scopri i nostri ultimi lavori, novità e tendenze direttamente sul nostro profilo ufficiale.
+            </p>
             <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="insta-follow-btn">
-                @anim_abellacentroestetico2026
-            </a>
-        </div>
-
-        <div class="gallery-grid">
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 42  💬 3</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 56  💬 7</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 89  💬 12</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1516975080661-46bfa9995183?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 34  💬 2</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 61  💬 5</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 73  💬 9</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1498843053639-170ff2122f35?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 52  💬 4</div>
-            </a>
-            <a href="https://www.instagram.com/anim_abellacentroestetico2026?igsh=Y2xyNDd6eXl3bnBm" target="_blank" class="instagram-post-link">
-                <img src="https://images.unsplash.com/photo-1560963689-02e820ce8ef7?q=80&w=500" alt="Insta Post">
-                <div class="instagram-overlay">❤️ 95  💬 14</div>
+                Seguici su Instagram
             </a>
         </div>
     </section>
@@ -559,7 +475,7 @@
     <section id="contatti" class="contact">
         <div class="contact-map">
             <iframe 
-                src="https://maps.google.com/maps?q=Via%20Papa%20Giovanni%20XXIII,%2029,%2020098%20San%20Giuliano%20Milanese%20MI&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.2227184651357!2d9.242371976839352!3d45.4149811361094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c4765d1d6a69%3A0x7d6f5f3e4e9ffdbb!2sVia%20Papa%20Giovanni%20XXIII%2C%2029%2C%2020098%20San%20Giuliano%20Milanese%20MI%2C%20Italy!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
                 allowfullscreen="" 
                 loading="lazy">
             </iframe>
