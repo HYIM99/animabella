@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anima Bella | Centro Estetico & Nail</title>
+    <title>Anima Bella | Centro Estetico & Nail Salone</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* 奢华极简色调 */
@@ -131,7 +131,7 @@
             font-weight: 300;
         }
 
-        /* 首屏背景图：替换为充满高级感的美甲/手部特写 */
+        /* 首屏背景图 */
         .hero-img {
             flex: 1.2;
             height: 70vh;
@@ -332,7 +332,8 @@
             font-weight: 300;
         }
 
-        .whatsapp-btn-large {
+        /* 预约大按钮：Treatwell 主按钮 */
+        .booking-btn-large {
             display: block;
             text-align: center;
             background-color: var(--text-dark);
@@ -348,8 +349,33 @@
             transition: all 0.3s;
         }
 
+        .booking-btn-large:hover {
+            background-color: #0047b3; /* 悬停时微微泛出 Treatwell 的品牌蓝，细节拉满 */
+            transform: translateY(-1px);
+        }
+
+        /* 预约大按钮：WhatsApp 次级按钮 (极简线框风) */
+        .whatsapp-btn-large {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 14px;
+            border-radius: 0px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
         .whatsapp-btn-large:hover {
             background-color: #25D366; 
+            color: white;
+            border-color: #25D366;
             transform: translateY(-1px);
         }
 
@@ -428,14 +454,14 @@
             <li><a href="#instagram">Instagram</a></li>
             <li><a href="#contatti">Dove Siamo</a></li>
         </ul>
-        <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-primary">Prenota Ora</a>
+        <a href="https://www.treatwell.it/salone/anima-bella-centro-estetico/" target="_blank" class="btn-primary">Prenota Ora</a>
     </header>
 
     <section class="hero">
         <div class="hero-text">
             <h1>Anima Bella<br>Il Tuo Momento di Relax</h1>
             <p>Nail Art e Trattamenti Estetici Professionali a San Giuliano Milanese.</p>
-            <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-primary">Scopri di Più</a>
+            <a href="https://www.treatwell.it/salone/anima-bella-centro-estetico/" target="_blank" class="btn-primary">Prenota su Treatwell</a>
         </div>
         <div class="hero-img"></div>
     </section>
@@ -552,8 +578,12 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="whatsapp-btn-large">
-                Prenota un appuntamento
+            <a href="https://www.treatwell.it/salone/anima-bella-centro-estetico/" target="_blank" class="booking-btn-large">
+                Prenota su Treatwell
+            </a>
+            
+            <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20maggiori%20informazioni." class="whatsapp-btn-large" target="_blank">
+                Contattaci su WhatsApp
             </a>
         </div>
     </section>
