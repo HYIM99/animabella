@@ -414,8 +414,118 @@
                 text-align: center;
             }
         }
+                /* IT主管新增：GDPR 优雅悬浮弹窗样式 */
+        .gdpr-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            width: 90%;
+            max-width: 500px;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(211,53,21,0.1);
+        }
+        .gdpr-banner.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        .gdpr-text {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+        html[dir="rtl"] .gdpr-text {
+            text-align: right;
+        }
+        .gdpr-btn-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .gdpr-btn-accept {
+            padding: 8px 20px;
+            background-color: #f7a928; /* 对应DimSum红，美甲店可改成粉色/黑色，甜品店可改成橙色 */
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gdpr-btn-accept:hover {
+            background-color: #333333;
+        }
+        @media (max-width: 768px) {
+            .gdpr-banner { bottom: 10px; padding: 15px; }
+        }
+    </style>
+
     </style>
 </head>
+        /* IT主管新增：GDPR 优雅悬浮弹窗样式 */
+        .gdpr-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            width: 90%;
+            max-width: 500px;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(211,53,21,0.1);
+        }
+        .gdpr-banner.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        .gdpr-text {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+        html[dir="rtl"] .gdpr-text {
+            text-align: right;
+        }
+        .gdpr-btn-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .gdpr-btn-accept {
+            padding: 8px 20px;
+            background-color: #d33515; /* 对应DimSum红，美甲店可改成粉色/黑色，甜品店可改成橙色 */
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gdpr-btn-accept:hover {
+            background-color: #333333;
+        }
+        @media (max-width: 768px) {
+            .gdpr-banner { bottom: 10px; padding: 15px; }
+        }
+    </style>
+
 <body>
 
     <header>
