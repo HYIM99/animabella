@@ -8,7 +8,9 @@
     <meta name="keywords" content="Anima Bella, Anima Bella Milano, Nail Spa San Giuliano Milanese, Centro Estetico San Giuliano Milanese, Unghie San Giuliano Milanese, Manicure San Giuliano Milanese">
     <meta name="author" content="Anima Bella">
 
+    <!-- 引入高级时尚英文字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         /* 奢华极简色调 */
         :root {
@@ -135,7 +137,7 @@
             font-weight: 300;
         }
 
-        /* 首屏背景图：替换为充满高级感的美甲/手部特写 */
+        /* 首屏背景图 */
         .hero-img {
             flex: 1.2;
             height: 70vh;
@@ -370,55 +372,22 @@
 
         /* 响应式移动端优化 */
         @media (max-width: 900px) {
-            header {
-                padding: 15px 5%;
-            }
-            .logo img {
-                height: 55px; 
-            }
-            .nav-links {
-                display: none; 
-            }
-            .hero {
-                flex-direction: column;
-                padding: 60px 5% 0;
-                text-align: center;
-            }
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            .hero-img {
-                width: 100%;
-                height: 35vh;
-            }
-            section {
-                padding: 60px 5%;
-            }
-            .chi-siamo {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 40px;
-            }
-            .chi-siamo-text .section-title {
-                text-align: center;
-            }
-            .contact {
-                flex-direction: column;
-                gap: 40px;
-            }
-            .contact-map {
-                width: 100%;
-                height: 300px;
-            }
-            .contact-info .section-title {
-                text-align: center;
-            }
+            header { padding: 15px 5%; }
+            .logo img { height: 55px; }
+            .nav-links { display: none; }
+            .hero { flex-direction: column; padding: 60px 5% 0; text-align: center; }
+            .hero-text { padding-right: 0; margin-bottom: 40px; }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-img { width: 100%; height: 35vh; }
+            section { padding: 60px 5%; }
+            .chi-siamo { flex-direction: column-reverse; text-align: center; gap: 40px; }
+            .chi-siamo-text .section-title { text-align: center; }
+            .contact { flex-direction: column; gap: 40px; }
+            .contact-map { width: 100%; height: 300px; }
+            .contact-info .section-title { text-align: center; }
         }
-                     /* IT主管新增：GDPR 优雅悬浮弹窗样式 */
+
+        /* GDPR 优雅悬浮弹窗样式 */
         .gdpr-banner {
             position: fixed;
             bottom: 20px;
@@ -436,7 +405,7 @@
             flex-direction: column;
             gap: 12px;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(211,53,21,0.1);
+            border: 1px solid rgba(188,142,86,0.2);
         }
         .gdpr-banner.show {
             transform: translateX(-50%) translateY(0);
@@ -445,9 +414,8 @@
             font-size: 0.85rem;
             line-height: 1.4;
             text-align: left;
-        }
-        html[dir="rtl"] .gdpr-text {
-            text-align: right;
+            text-transform: none; /* 强制防止被全局大写继承 */
+            letter-spacing: 0.3px;
         }
         .gdpr-btn-group {
             display: flex;
@@ -455,89 +423,28 @@
             gap: 10px;
         }
         .gdpr-btn-accept {
-            padding: 8px 20px;
-            background-color: #222222; /* 对应DimSum红，美甲店可改成粉色/黑色，甜品店可改成橙色 */
+            padding: 8px 25px;
+            background-color: var(--text-dark); 
             color: #ffffff;
             font-size: 0.85rem;
             font-weight: bold;
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            text-transform: uppercase;
             transition: background 0.2s;
         }
         .gdpr-btn-accept:hover {
-            background-color: #333333;
+            background-color: var(--primary);
         }
         @media (max-width: 768px) {
             .gdpr-banner { bottom: 10px; padding: 15px; }
         }
     </style>
-
-    </style>
 </head>
-           <!-- IT主管新增：GDPR 弹窗实体 -->
-    <div id="gdprBanner" class="gdpr-banner">
-        <p class="gdpr-text" data-i18n="gdpr_text">
-            Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito e per analizzare il traffico. Cliccando su "Accetta", acconsenti al loro utilizzo.
-        </p>
-        <div class="gdpr-btn-group">
-            <button class="gdpr-btn-accept" onclick="acceptGDPR()" data-i18n="gdpr_accept">Accetta</button>
-        </div>
-    </div>
-
-    <script>
-        // 在你原有的 translations 资产包里，分别为六个语言追加 gdpr_text 和 gdpr_accept 两个字段：
-        // 举例：请把你原有的 translations 内部增补成下面这样：
-        Object.assign(translations.zh, {
-            gdpr_text: "我们使用 Cookie 来确保您在我们网站上获得最佳体验并分析流量。点击“接受”即表示您同意其使用。",
-            gdpr_accept: "接受"
-        });
-        Object.assign(translations.it, {
-            gdpr_text: "Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito e per analizzare il traffico. Cliccando su 'Accetta', acconsenti al loro utilizzo ai sensi del GDPR.",
-            gdpr_accept: "Accetta"
-        });
-        Object.assign(translations.en, {
-            gdpr_text: "We use cookies to ensure you get the best experience on our website and to analyze traffic. By clicking 'Accept', you consent to their use.",
-            gdpr_accept: "Accept"
-        });
-        Object.assign(translations.de, {
-            gdpr_text: "Wir verwenden Cookies, um sicherzustellen, dass Sie das beste Erlebnis auf unserer Website erhalten. Wenn Sie auf 'Akzeptieren' klicken, stimmen Sie deren Verwendung zu.",
-            gdpr_accept: "Akzeptieren"
-        });
-        Object.assign(translations.fr, {
-            gdpr_text: "Nous utilisons des cookies pour vous garantir la meilleure expérience sur notre site. En cliquant sur 'Accepter', vous consentez à leur utilisation.",
-            gdpr_accept: "Accepter"
-        });
-        Object.assign(translations.ar, {
-            gdpr_text: "نحن نستخدم ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا ولتحليل حركة المرور. بالنقر فوق 'قبول'، فإنك توافق على استخدامها.",
-            gdpr_accept: "قبول"
-        });
-
-        // GDPR 核心控制核心脚本
-        window.addEventListener('DOMContentLoaded', () => {
-            // 检查用户在过去 24 小时内是否已经点击过接受
-            const gdprConsent = localStorage.getItem('gdpr_consent_2026');
-            const consentTimestamp = localStorage.getItem('gdpr_consent_time');
-            const now = new Date().getTime();
-
-            // 如果没有点击过，或者点击时间已经超过 24 小时 (86400000 毫秒)，则弹出
-            if (!gdprConsent || (now - consentTimestamp > 86400000)) {
-                setTimeout(() => {
-                    document.getElementById('gdprBanner').classList.add('show');
-                }, 1000); // 网页加载完 1 秒后优雅滑出
-            }
-        });
-
-        function acceptGDPR() {
-            const now = new Date().getTime();
-            localStorage.setItem('gdpr_consent_2026', 'accepted');
-            localStorage.setItem('gdpr_consent_time', now);
-            document.getElementById('gdprBanner').classList.remove('show');
-        }
-    </script>
-
 <body>
 
+    <!-- 顶部导航 -->
     <header>
         <div class="logo">
             <img src="https://i.ibb.co/zWSSgh7h/1-15.png" alt="Anima Bella Logo">
@@ -551,6 +458,7 @@
         <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="btn-primary">Prenota Ora</a>
     </header>
 
+    <!-- Hero 视觉首屏 -->
     <section class="hero">
         <div class="hero-text">
             <h1>Anima Bella<br>Il Tuo Momento di Relax</h1>
@@ -560,6 +468,7 @@
         <div class="hero-img"></div>
     </section>
 
+    <!-- 关于我们 -->
     <section id="chi-siamo" class="chi-siamo">
         <div class="chi-siamo-img">
             <img src="https://images.pexels.com/photos/3997389/pexels-photo-3997389.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Nail Salon">
@@ -570,6 +479,7 @@
         </div>
     </section>
 
+    <!-- 服务项目 -->
     <section id="servizi" class="servizi">
         <h2 class="section-title">I Nostri Servizi</h2>
         <div class="services-grid">
@@ -594,7 +504,7 @@
                     <ul class="service-list">
                         <li>Pedicure Estetico</li>
                         <li>Pedicure Curativo (calli, duroni)</li>
-                        <li>Smalto Semipermanente Piedi</li>
+                        <li>Smalto Semipermanente Pies</li>
                     </ul>
                 </div>
             </div>
@@ -627,6 +537,7 @@
         </div>
     </section>
 
+    <!-- Instagram 引导区 -->
     <section id="instagram" class="instagram-section">
         <div class="instagram-wrapper">
             <h2 class="section-title">SU DI NOI</h2>
@@ -637,6 +548,7 @@
         </div>
     </section>
 
+    <!-- 联络与地图 -->
     <section id="contatti" class="contact">
         <div class="contact-map">
             <iframe 
@@ -678,15 +590,53 @@
         </div>
     </section>
 
+    <!-- 页脚与制作方 -->
     <footer>
-        <p>© 2026 Anima Bella Centro Estetico. Tutti i diritti riservati.<!-- 纯净精简版：仅保留 Zero1 Studio 制作方标签，无重复版权 -->
-<div class="zero1-tag" style="text-align: center; padding: 10px 20px 25px; font-size: 0.85rem; color: inherit; opacity: 0.7; display: flex; align-items: center; justify-content: center; line-height: 1;">
-    <a href="https://zero1studio.it" target="_blank" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; vertical-align: middle;">
-        <!-- 完美的 SVG 自适应矢量图标 -->
-        <svg width="15" height="15" viewBox="0 0 100 100" style="display: inline-block; vertical-align: middle;">
-            <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="12" fill="none" />
-            <line x1="50" y1="26" x2="50" y2="74" stroke="#0071e3" stroke-width="12" stroke-linecap="round" />
-        </svg>
-        <span style="display: inline-block; vertical-align: middle; margin-top: 1px;">Sito realizzato da Zero1 Studio</span>
-    </a>
-</div>
+        <p>© 2026 Anima Bella Centro Estetico. Tutti i diritti riservati.</p>
+        <div class="zero1-tag" style="padding-top: 15px; font-size: 0.8rem; color: #888888; display: flex; align-items: center; justify-content: center; line-height: 1;">
+            <a href="https://zero1studio.it" target="_blank" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 100 100" style="display: inline-block; vertical-align: middle;">
+                    <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="12" fill="none" />
+                    <line x1="50" y1="26" x2="50" y2="74" stroke="#0071e3" stroke-width="12" stroke-linecap="round" />
+                </svg>
+                <span>Sito realizzato da Zero1 Studio</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- GDPR 弹窗实体（已修正到 </body> 上方最佳位置） -->
+    <div id="gdprBanner" class="gdpr-banner">
+        <p class="gdpr-text" id="gdprText">
+            Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito e per analizzare il traffico. Cliccando su "Accetta", acconsenti al loro utilizzo ai sensi del GDPR.
+        </p>
+        <div class="gdpr-btn-group">
+            <button class="gdpr-btn-accept" onclick="acceptGDPR()">Accetta</button>
+        </div>
+    </div>
+
+    <!-- GDPR 核心控制核心脚本 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const gdprConsent = localStorage.getItem('gdpr_consent_2026');
+            const consentTimestamp = localStorage.getItem('gdpr_consent_time');
+            const now = new Date().getTime();
+
+            // 如果没有点击过，或者点击时间已经超过 24 小时 (86400000 毫秒)，则滑出提示
+            if (!gdprConsent || (now - consentTimestamp > 86400000)) {
+                setTimeout(() => {
+                    document.getElementById('gdprBanner').classList.add('show');
+                }, 1000); 
+            }
+        });
+
+        function acceptGDPR() {
+            const now = new Date().getTime();
+            localStorage.setItem('gdpr_consent_2026', 'accepted');
+            localStorage.setItem('gdpr_consent_time', now);
+            document.getElementById('gdprBanner').classList.remove('remove'); // 避免干扰
+            document.getElementById('gdprBanner').classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
