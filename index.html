@@ -338,6 +338,30 @@
             font-weight: 300;
         }
 
+        /* 🆕 Treatwell 辅助分流高奢设计按钮 */
+        .treatwell-btn-secondary {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--text-dark);
+            padding: 15px;
+            border: 1px dashed var(--primary); /* 虚线轻量化设计，弱化第一视觉抢眼度 */
+            border-radius: 0px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 35px;
+            transition: all 0.3s;
+        }
+        .treatwell-btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            border-style: solid;
+            transform: translateY(-1px);
+        }
+
         .whatsapp-btn-large {
             display: block;
             text-align: center;
@@ -350,7 +374,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-top: 35px;
+            margin-top: 15px; /* 与上方的 Treatwell 按钮错落呼应 */
             transition: all 0.3s;
         }
 
@@ -359,7 +383,7 @@
             transform: translateY(-1px);
         }
 
-        /* 页脚 */
+        /* 原样保留的纯净页脚 */
         footer {
             background: #111111;
             color: #888888;
@@ -414,7 +438,7 @@
             font-size: 0.85rem;
             line-height: 1.4;
             text-align: left;
-            text-transform: none; /* 强制防止被全局大写继承 */
+            text-transform: none; 
             letter-spacing: 0.3px;
         }
         .gdpr-btn-group {
@@ -475,7 +499,7 @@
         </div>
         <div class="chi-siamo-text">
             <h2 class="section-title">Chi Siamo</h2>
-            <p>Un'oasi di benessere dedicata a valorizzare la tua bellezza unica. Il nostro team esperto ti accoglie con passione e alta professionalità, offrendoti trattamenti su misura in un ambiente elegante, intimo e rilassante.</p>
+            <p>Un'oasi di充实 dedicada a valorizzare la tua bellezza unica. Il nostro team esperto ti accoglie con passione e alta professionalità, offrendoti trattamenti su misura in un ambiente elegante, intimo e rilassante.</p>
         </div>
     </section>
 
@@ -584,13 +608,19 @@
                 </div>
             </div>
 
+            <!-- 🆕 Treatwell 辅助分流高奢设计按钮 -->
+            <a href="https://www.treatwell.it/salone/anima-bella-centro-estetico/" target="_blank" class="treatwell-btn-secondary">
+                Prenota via Treatwell
+            </a>
+
+            <!-- 🔒 WhatsApp 核心绝对主力预约入口 (置底最大化聚焦) -->
             <a href="https://wa.me/393242652619?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento." class="whatsapp-btn-large">
                 Prenota un appuntamento
             </a>
         </div>
     </section>
 
-    <!-- 页脚与制作方 -->
+    <!-- 原样保留的纯净页脚 -->
     <footer>
         <p>© 2026 Anima Bella Centro Estetico. Tutti i diritti riservati.</p>
         <div class="zero1-tag" style="padding-top: 15px; font-size: 0.8rem; color: #888888; display: flex; align-items: center; justify-content: center; line-height: 1;">
@@ -604,24 +634,23 @@
         </div>
     </footer>
 
-    <!-- GDPR 弹窗实体（已修正到 </body> 上方最佳位置） -->
+    <!-- GDPR 弹窗实体 -->
     <div id="gdprBanner" class="gdpr-banner">
         <p class="gdpr-text" id="gdprText">
-            Utilizziamo i cookie per garantire la migliore esperienza sul nostro sito e per analizzare il traffico. Cliccando su "Accetta", acconsenti al loro utilizzo ai sensi del GDPR.
+            Utilizziamo i cookie per garantire la migliore esperienza sul nostro si e per analizzare il traffico. Cliccando su "Accetta", acconsenti al loro utilizzo ai sensi del GDPR.
         </p>
         <div class="gdpr-btn-group">
             <button class="gdpr-btn-accept" onclick="acceptGDPR()">Accetta</button>
         </div>
     </div>
 
-    <!-- GDPR 核心控制核心脚本 -->
+    <!-- GDPR 核心脚本 -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const gdprConsent = localStorage.getItem('gdpr_consent_2026');
             const consentTimestamp = localStorage.getItem('gdpr_consent_time');
             const now = new Date().getTime();
 
-            // 如果没有点击过，或者点击时间已经超过 24 小时 (86400000 毫秒)，则滑出提示
             if (!gdprConsent || (now - consentTimestamp > 86400000)) {
                 setTimeout(() => {
                     document.getElementById('gdprBanner').classList.add('show');
@@ -633,7 +662,6 @@
             const now = new Date().getTime();
             localStorage.setItem('gdpr_consent_2026', 'accepted');
             localStorage.setItem('gdpr_consent_time', now);
-            document.getElementById('gdprBanner').classList.remove('remove'); // 避免干扰
             document.getElementById('gdprBanner').classList.remove('show');
         }
     </script>
